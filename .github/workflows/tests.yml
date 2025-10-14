@@ -41,9 +41,9 @@ jobs:
           - 19
           - 20
     steps:
-    - uses: actions/checkout@v4
-    - name: Build and test the Docker image
-      run: test/test.sh ${{ matrix.clang-format-version }}
+      - uses: actions/checkout@v4
+      - name: Build and test the Docker image
+        run: test/test.sh ${{ matrix.clang-format-version }}
   e2e:
     name: E2E ${{ inputs.runner-os }}-clang-format-${{ matrix.clang-format-version }}-${{ matrix.path['check'] }}
     runs-on: ${{ inputs.runner-os }}
@@ -69,15 +69,16 @@ jobs:
           - 18
           - 19
           - 20
+          - 21
         path:
-          - check: 'test/known_fail'
-            exclude: 'capital'
+          - check: "test/known_fail"
+            exclude: "capital"
             known_fail: true
-          - check: 'test/known_pass'
-            exclude: 'capital'
+          - check: "test/known_pass"
+            exclude: "capital"
             known_fail: false
-          - check: 'test/load_test'
-            exclude: 'capital'
+          - check: "test/load_test"
+            exclude: "capital"
             known_fail: false
     steps:
       - uses: actions/checkout@v4
