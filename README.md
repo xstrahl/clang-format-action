@@ -102,7 +102,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Run clang-format style check for C/C++/Protobuf programs.
-      uses: xstrahl/clang-format-action@v4.15.0
+      uses: xstrahl/clang-format-action@v4.16.0
       with:
         clang-format-version: '13'
         check-path: 'src'
@@ -127,7 +127,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Run clang-format style check for C/C++/Protobuf programs.
-      uses: xstrahl/clang-format-action@v4.15.0
+      uses: xstrahl/clang-format-action@v4.16.0
       with:
         clang-format-version: '13'
         check-path: ${{ matrix.path }}
@@ -154,7 +154,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Run clang-format style check for C/C++/Protobuf programs.
-      uses: xstrahl/clang-format-action@v4.15.0
+      uses: xstrahl/clang-format-action@v4.16.0
       with:
         clang-format-version: '13'
         check-path: ${{ matrix.path['check'] }}
