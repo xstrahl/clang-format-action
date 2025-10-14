@@ -1,8 +1,8 @@
-[![ubuntu-22.04 Tests](https://github.com/jidicula/clang-format-action/actions/workflows/test-ubuntu-22.04.yml/badge.svg)](https://github.com/jidicula/clang-format-action/actions/workflows/test-ubuntu-22.04.yml)
+[![ubuntu-22.04 Tests](https://github.com/xstrahl/clang-format-action/actions/workflows/test-ubuntu-22.04.yml/badge.svg)](https://github.com/xstrahl/clang-format-action/actions/workflows/test-ubuntu-22.04.yml)
 
-[![ubuntu-24.04 Tests](https://github.com/jidicula/clang-format-action/actions/workflows/test-ubuntu-24.04.yml/badge.svg)](https://github.com/jidicula/clang-format-action/actions/workflows/test-ubuntu-24.04.yml)
+[![ubuntu-24.04 Tests](https://github.com/xstrahl/clang-format-action/actions/workflows/test-ubuntu-24.04.yml/badge.svg)](https://github.com/xstrahl/clang-format-action/actions/workflows/test-ubuntu-24.04.yml)
 
-[![shell-lint](https://github.com/jidicula/clang-format-action/workflows/shell-lint/badge.svg?branch=main)](https://github.com/jidicula/clang-format-action/actions?query=workflow%3Ashell-lint+branch%3Amain)
+[![shell-lint](https://github.com/xstrahl/clang-format-action/workflows/shell-lint/badge.svg?branch=main)](https://github.com/xstrahl/clang-format-action/actions?query=workflow%3Ashell-lint+branch%3Amain)
 
 
 # clang-format-action
@@ -33,14 +33,10 @@ You can define your own formatting rules in a `.clang-format` file at your repos
 ## Action version upgrade guarantee
 
 > [!IMPORTANT]
-> This action complies with the [Semantic Versioning spec](https://semver.org) for how it's called from GitHub Actions workflows. This means that for version format `x.y.z`, minor and patch version increments `y++` and `z++` will not break existing functionality for how this action is called in your GitHub Actions workflows. Major version increments (`x++`) *will* include breaking changes in how this action is called. If you notice version changes that violate this guarantee, [open an issue](https://github.com/jidicula/clang-format-action/issues/new?template=Blank+issue) and let's work together to fix it 😁.
+> This action complies with the [Semantic Versioning spec](https://semver.org) for how it's called from GitHub Actions workflows. This means that for version format `x.y.z`, minor and patch version increments `y++` and `z++` will not break existing functionality for how this action is called in your GitHub Actions workflows. Major version increments (`x++`) *will* include breaking changes in how this action is called. If you notice version changes that violate this guarantee, [open an issue](https://github.com/xstrahl/clang-format-action/issues/new?template=Blank+issue) and let's work together to fix it 😁.
 
 > [!CAUTION]
 > I provide no guarantees for formatting breakages *within* `clang-format` versions. This action only supports major versions of `clang-format` and doesn't support granular specification of `clang-format` minor or patch versions. It's possible that a formatting check workflow using this action and a pinned version of `clang-format` could break in a subsequent run if the underlying `clang-format` Ubuntu package has introduced a breaking minor or patch version change. I'm not sure how often this happens - vote in [this poll](https://github.com/jidicula/clang-format-action/discussions/192) and optionally leave a comment so I can understand this problem more.
-
-## Do you find this useful?
-
-You can sponsor me [here](https://github.com/sponsors/jidicula)!
 
 ## Inputs
 * `clang-format-version` [optional]: The major version of `clang-format` that you want to run on your codebase.
@@ -106,7 +102,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Run clang-format style check for C/C++/Protobuf programs.
-      uses: jidicula/clang-format-action@v4.15.0
+      uses: xstrahl/clang-format-action@v4.15.0
       with:
         clang-format-version: '13'
         check-path: 'src'
@@ -131,7 +127,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Run clang-format style check for C/C++/Protobuf programs.
-      uses: jidicula/clang-format-action@v4.15.0
+      uses: xstrahl/clang-format-action@v4.15.0
       with:
         clang-format-version: '13'
         check-path: ${{ matrix.path }}
@@ -158,7 +154,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Run clang-format style check for C/C++/Protobuf programs.
-      uses: jidicula/clang-format-action@v4.15.0
+      uses: xstrahl/clang-format-action@v4.15.0
       with:
         clang-format-version: '13'
         check-path: ${{ matrix.path['check'] }}
