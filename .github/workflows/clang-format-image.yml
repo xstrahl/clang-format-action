@@ -74,7 +74,7 @@ jobs:
           context: .
           file: "clang-format-docker/Dockerfile"
           push: true
-          tags: ${{ env.REGISTRY}}/jidicula/${{ env.IMAGE_NAME}}:${{ env.MAJOR_VERSION }}
+          tags: ${{ env.REGISTRY}}/xstrahl/${{ env.IMAGE_NAME}}:${{ env.MAJOR_VERSION }}
           labels: ${{ steps.meta.outputs.labels }}
           build-args: |
             "UBUNTU_VERSION=${{ matrix.version-pair.ubuntu }}"
