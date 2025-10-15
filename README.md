@@ -11,24 +11,25 @@ An action for `clang-format` checks. This action does **NOT** format your code f
 You can define your own formatting rules in a `.clang-format` file at your repository root, or you can provide a fallback style (see [`fallback-style`](#inputs)). You can also provide a path to check. If you want to run checks against multiple paths in your repository, you can use this action in a [matrix run](#multiple-paths).
 
 ## Major versions supported
-* 3: `clang-format-3.9`
-* 4: `clang-format-4.0`
-* 5: `clang-format-5.0`
-* 6: `clang-format-6.0`
-* 7: `clang-format-7`
-* 8: `clang-format-8`
-* 9: `clang-format-9`
-* 10: `clang-format-10`
-* 11: `clang-format-11`
-* 12: `clang-format-12`
-* 13: `clang-format-13`
-* 14: `clang-format-14`
-* 15: `clang-format-15`
-* 16: `clang-format-16`
-* 17: `clang-format-17`
-* 18: `clang-format-18`
-* 19: `clang-format-19`
-* 20: `clang-format-20`
+- 3: `clang-format-3.9`
+- 4: `clang-format-4.0`
+- 5: `clang-format-5.0`
+- 6: `clang-format-6.0`
+- 7: `clang-format-7`
+- 8: `clang-format-8`
+- 9: `clang-format-9`
+- 10: `clang-format-10`
+- 11: `clang-format-11`
+- 12: `clang-format-12`
+- 13: `clang-format-13`
+- 14: `clang-format-14`
+- 15: `clang-format-15`
+- 16: `clang-format-16`
+- 17: `clang-format-17`
+- 18: `clang-format-18`
+- 19: `clang-format-19`
+- 20: `clang-format-20`
+- 21: `clang-format-21`
 
 ## Action version upgrade guarantee
 
@@ -39,49 +40,49 @@ You can define your own formatting rules in a `.clang-format` file at your repos
 > I provide no guarantees for formatting breakages *within* `clang-format` versions. This action only supports major versions of `clang-format` and doesn't support granular specification of `clang-format` minor or patch versions. It's possible that a formatting check workflow using this action and a pinned version of `clang-format` could break in a subsequent run if the underlying `clang-format` Ubuntu package has introduced a breaking minor or patch version change. I'm not sure how often this happens - vote in [this poll](https://github.com/jidicula/clang-format-action/discussions/192) and optionally leave a comment so I can understand this problem more.
 
 ## Inputs
-* `clang-format-version` [optional]: The major version of `clang-format` that you want to run on your codebase.
-  * Default: `13`
-  * Available versions: see [Versions supported](#major-versions-supported)
-* `check-path` [optional]: The path to the directory in the repo that should be checked for C/C++/Protobuf formatting.
-  * Default: `.`
-  * For cleaner output (i.e. with no double-slashed paths), the final directory in this path should have no trailing slash, e.g. `src` and not `src/`.
-* `fallback-style` [optional]: The fallback style for `clang-format` if no `.clang-format` file exists in your repository.
-  * Default: `llvm`
-  * Available values: `LLVM`, `Google`, `Chromium`, `Mozilla`, `WebKit` and others listed in the `clang-format` [docs for BasedOnStyle](https://clang.llvm.org/docs/ClangFormatStyleOptions.html#configurable-format-style-options).
-* `exclude-regex` [optional]: A regex to exclude files or directories that should not be checked.
-  * Default: `^$`
-  * Pattern matching is done with a POSIX `grep -E` extended regex, **not** a glob expression. You can exclude multiple patterns like this: `(hello|world)`. Build and verify your regex at [regex101.com](https://regex101.com) ([example](https://regex101.com/r/llFcLy/7)).
-* `include-regex` [optional]: A regex to include files or directories that should be checked.
-  * Default: see [`INCLUDE_REGEX`](./check.sh#77)
-  * Pattern matching is done with a POSIX `grep -E` extended regex, **not** a glob expression. You can exclude multiple patterns like this: `(hello|world)`. Build and verify your regex at [regex101.com](https://regex101.com) ([example](https://regex101.com/r/llFcLy/7)).
+- `clang-format-version` [optional]: The major version of `clang-format` that you want to run on your codebase.
+  - Default: `13`
+  - Available versions: see [Versions supported](#major-versions-supported)
+- `check-path` [optional]: The path to the directory in the repo that should be checked for C/C++/Protobuf formatting.
+  - Default: `.`
+  - For cleaner output (i.e. with no double-slashed paths), the final directory in this path should have no trailing slash, e.g. `src` and not `src/`.
+- `fallback-style` [optional]: The fallback style for `clang-format` if no `.clang-format` file exists in your repository.
+  - Default: `llvm`
+  - Available values: `LLVM`, `Google`, `Chromium`, `Mozilla`, `WebKit` and others listed in the `clang-format` [docs for BasedOnStyle](https://clang.llvm.org/docs/ClangFormatStyleOptions.html#configurable-format-style-options).
+- `exclude-regex` [optional]: A regex to exclude files or directories that should not be checked.
+  - Default: `^$`
+  - Pattern matching is done with a POSIX `grep -E` extended regex, **not** a glob expression. You can exclude multiple patterns like this: `(hello|world)`. Build and verify your regex at [regex101.com](https://regex101.com) ([example](https://regex101.com/r/llFcLy/7)).
+- `include-regex` [optional]: A regex to include files or directories that should be checked.
+  - Default: see [`INCLUDE_REGEX`](./check.sh#77)
+  - Pattern matching is done with a POSIX `grep -E` extended regex, **not** a glob expression. You can exclude multiple patterns like this: `(hello|world)`. Build and verify your regex at [regex101.com](https://regex101.com) ([example](https://regex101.com/r/llFcLy/7)).
 
 This action checks all C/C++/Protobuf (including Arduino `.ino` and `.pde`) files in the provided directory in the GitHub workspace are formatted correctly using `clang-format`. If no directory is provided or the provided path is not a directory in the GitHub workspace, all C/C++/Protobuf files are checked.
 
 The following file extensions are checked by default:
-* Header files:
-  * `.h`
-  * `.H`
-  * `.hpp`
-  * `.hh`
-  * `.h++`
-  * `.hxx `
-* Source files:
-  * `.c`
-  * `.C`
-  * `.cpp`
-  * `.cc`
-  * `.c++`
-  * `.cxx`
-  * `.ino`
-  * `.pde`
-  * `.cu`
-* Protobuf files:
-  * `.proto`
+- Header files:
+  - `.h`
+  - `.H`
+  - `.hpp`
+  - `.hh`
+  - `.h++`
+  - `.hxx `
+- Source files:
+  - `.c`
+  - `.C`
+  - `.cpp`
+  - `.cc`
+  - `.c++`
+  - `.cxx`
+  - `.ino`
+  - `.pde`
+  - `.cu`
+- Protobuf files:
+  - `.proto`
 
 ## Returns:
 
-* SUCCESS: zero exit-code if C/C++/Protobuf files in `check-path` are formatted correctly
-* FAILURE: nonzero exit-code if C/C++/Protobuf files in `check-path` are not formatted correctly
+- SUCCESS: zero exit-code if C/C++/Protobuf files in `check-path` are formatted correctly
+- FAILURE: nonzero exit-code if C/C++/Protobuf files in `check-path` are not formatted correctly
 
 # Usage
 
