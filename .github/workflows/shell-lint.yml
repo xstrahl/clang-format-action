@@ -7,9 +7,10 @@ on:
   pull_request:
 
 jobs:
-  shellcheck:
-    name: Run Shellcheck on shellscripts
-    runs-on: ubuntu-latest
+  shellcheck-shfmt:
+    runs-on: ubuntu-slim
+    env:
+      SHFMT_VERSION: 3.0.1
 
     steps:
       - uses: actions/checkout@v7
