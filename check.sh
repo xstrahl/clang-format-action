@@ -47,7 +47,7 @@ fi
 # initialize exit code
 exit_code=0
 
-DOCKER_IMAGE="ghcr.io/jidicula/clang-format:${CLANG_FORMAT_MAJOR_VERSION}"
+DOCKER_IMAGE="ghcr.io/xstrahl/clang-format:${CLANG_FORMAT_MAJOR_VERSION}"
 
 # output clang-format version
 docker run \
