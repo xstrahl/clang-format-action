@@ -40,6 +40,8 @@ jobs:
           - 18
           - 19
           - 20
+          - 21
+          - 22
     steps:
       - uses: actions/checkout@v7
       - name: Login to GitHub Container Registry
@@ -76,6 +78,7 @@ jobs:
           - 19
           - 20
           - 21
+          - 22
         path:
           - check: "test/known_fail"
             exclude: "capital"

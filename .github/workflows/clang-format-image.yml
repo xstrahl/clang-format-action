@@ -31,25 +31,26 @@ jobs:
       fail-fast: false
       matrix:
         version-pair:
-          - { version: "21", ubuntu: "plucky" }
-          - { version: "20", ubuntu: "plucky" }
-          - { version: "19", ubuntu: "plucky" }
-          - { version: "18", ubuntu: "noble" }
-          - { version: "17", ubuntu: "noble" }
-          - { version: "16", ubuntu: "noble" }
-          - { version: "15", ubuntu: "noble" }
-          - { version: "14", ubuntu: "noble" }
-          - { version: "13", ubuntu: "jammy" }
-          - { version: "12", ubuntu: "jammy" }
-          - { version: "11", ubuntu: "jammy" }
-          - { version: "10", ubuntu: "focal" }
-          - { version: "9", ubuntu: "focal" }
-          - { version: "8", ubuntu: "focal" }
-          - { version: "7", ubuntu: "focal" }
-          - { version: "6.0", ubuntu: "focal" }
-          - { version: "5.0", ubuntu: "bionic" }
-          - { version: "4.0", ubuntu: "bionic" }
-          - { version: "3.9", ubuntu: "bionic" }
+          - {version: "22", ubuntu: "resolute"}
+          - {version: "21", ubuntu: "questing"}
+          - {version: "20", ubuntu: "questing"}
+          - {version: "19", ubuntu: "questing"}
+          - {version: "18", ubuntu: "questing"}
+          - {version: "17", ubuntu: "questing"}
+          - {version: "16", ubuntu: "noble"}
+          - {version: "15", ubuntu: "noble"}
+          - {version: "14", ubuntu: "noble"}
+          - {version: "13", ubuntu: "jammy"}
+          - {version: "12", ubuntu: "jammy"}
+          - {version: "11", ubuntu: "jammy"}
+          - {version: "10", ubuntu: "focal"}
+          - {version: "9", ubuntu: "focal"}
+          - {version: "8", ubuntu: "focal"}
+          - {version: "7", ubuntu: "focal"}
+          - {version: "6.0", ubuntu: "focal"}
+          - {version: "5.0", ubuntu: "bionic"}
+          - {version: "4.0", ubuntu: "bionic"}
+          - {version: "3.9", ubuntu: "bionic"}
     steps:
       - uses: actions/checkout@v7
       - name: Parse version tags
